@@ -1,0 +1,238 @@
+
+const employees = [
+  {
+    id: 1,
+    firstName: "Aarav",
+    email: "employee1@example.com",
+    password: "123",
+    tasks: [
+      {
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false,
+        title: "Update client database",
+        description: "Clean and update records in the CRM.",
+        date: "2025-05-20",
+        category: "Database",
+      },
+      {
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+        title: "Prepare presentation",
+        description: "Make the slides for Q2 review.",
+        date: "2025-05-17",
+        category: "Reporting",
+      },
+      {
+        active: false,
+        newTask: false,
+        completed: false,
+        failed: true,
+        title: "Deploy new API",
+        description: "Publish v2.1 of internal API service.",
+        date: "2025-05-18",
+        category: "Development",
+      },
+    ],
+    taskCount: { active: 1, newTask: 1, completed: 1, failed: 1 },
+  },
+  {
+    id: 2,
+    firstName: "Ishaan",
+    email: "employee2@example.com",
+    password: "123",
+    tasks: [
+      {
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false,
+        title: "Conduct team meeting",
+        description: "Weekly team sync on deliverables.",
+        date: "2025-05-21",
+        category: "Management",
+      },
+      {
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+        title: "Write unit tests",
+        description: "Cover new modules with Jest tests.",
+        date: "2025-05-15",
+        category: "Testing",
+      },
+      {
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+        title: "Fix login issue",
+        description: "Resolve bug in JWT auth flow.",
+        date: "2025-05-16",
+        category: "Bug Fixing",
+      },
+      {
+        active: false,
+        newTask: false,
+        completed: false,
+        failed: true,
+        title: "Optimize DB queries",
+        description: "Improve response time for analytics.",
+        date: "2025-05-18",
+        category: "Database",
+      },
+    ],
+    taskCount: { active: 1, newTask: 1, completed: 2, failed: 1 },
+  },
+  {
+    id: 3,
+    firstName: "Kavya",
+    email: "employee3@example.com",
+    password: "123",
+    tasks: [
+      {
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false,
+        title: "Draft user manual",
+        description: "Create docs for new feature rollout.",
+        date: "2025-05-21",
+        category: "Documentation",
+      },
+      {
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+        title: "Design UI mockups",
+        description: "Figma designs for mobile dashboard.",
+        date: "2025-05-19",
+        category: "Design",
+      },
+      {
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+        title: "Review PRs",
+        description: "Check incoming pull requests for quality.",
+        date: "2025-05-20",
+        category: "Code Review",
+      },
+    ],
+    taskCount: { active: 1, newTask: 1, completed: 2, failed: 0 },
+  },
+  {
+    id: 4,
+    firstName: "Riya",
+    email: "employee4@example.com",
+    password: "123",
+    tasks: [
+      {
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false,
+        title: "Run integration tests",
+        description: "Verify end-to-end app functionality.",
+        date: "2025-05-21",
+        category: "Testing",
+      },
+      {
+        active: false,
+        newTask: false,
+        completed: false,
+        failed: true,
+        title: "Resolve payment bug",
+        description: "Fix failed Stripe webhook logic.",
+        date: "2025-05-18",
+        category: "Bug Fixing",
+      },
+      {
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+        title: "Add cart feature",
+        description: "Implement add-to-cart backend logic.",
+        date: "2025-05-19",
+        category: "Development",
+      },
+      {
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+        title: "Refactor routes",
+        description: "Clean Express route handlers.",
+        date: "2025-05-20",
+        category: "Development",
+      },
+    ],
+    taskCount: { active: 1, newTask: 1, completed: 2, failed: 1 },
+  },
+  {
+    id: 5,
+    firstName: "Neha",
+    email: "employee5@example.com",
+    password: "123",
+    tasks: [
+      {
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false,
+        title: "Generate weekly report",
+        description: "Prepare analytics summary for manager.",
+        date: "2025-05-21",
+        category: "Reporting",
+      },
+      {
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false,
+        title: "Fix image upload",
+        description: "Resolve S3 permission issue.",
+        date: "2025-05-17",
+        category: "Bug Fixing",
+      },
+      {
+        active: false,
+        newTask: false,
+        completed: false,
+        failed: true,
+        title: "Backup production DB",
+        description: "Nightly backup script failed.",
+        date: "2025-05-18",
+        category: "Database",
+      },
+    ],
+    taskCount: { active: 1, newTask: 1, completed: 1, failed: 1 },
+  },
+];
+
+const admin = [
+  {
+    id: 1,
+    email: "admin@example.com",
+    password: "123",
+  },
+];
+
+export const setLocalStorage = () => {
+  localStorage.setItem("employees", JSON.stringify(employees));
+  localStorage.setItem("admin", JSON.stringify(admin));
+};
+
+export const getLocalStorage = () => {
+  const employees = JSON.parse(localStorage.getItem("employees"));
+  const admin = JSON.parse(localStorage.getItem("admin"));
+
+  return { employees, admin };
+};
